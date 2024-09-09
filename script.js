@@ -34,7 +34,7 @@ clickMe.addEventListener("click", () => {
             el.style.translate = "0 calc(-80vh + clamp(75px, 37.5vw, 225px))";
             colors.forEach((color) => {
                 color.style.opacity = "1";
-                color.style.scale ="1.5";
+                color.style.scale ="1";
             })
             setTimeout(() => {
                 white.style.animation = "glow 0.6s ease-in-out infinite alternate"
