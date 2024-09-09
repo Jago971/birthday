@@ -22,16 +22,16 @@ body {
 }
 .container {
     position: absolute;
-    width: clamp(150px, 50vw, 240px);
-    height: clamp(150px, 50vw, 240px);
+    width: clamp(200px, 50vw, 300px);
+    height: clamp(200px, 50vw, 300px);
 }
 
 /*----------------------------------box*/
 .box {
     flex-direction: column;
     align-items: center;
-    bottom: calc(50% - clamp(75px, 25vw, 120px));
-    left: calc(50% - clamp(75px, 25vw, 120px));
+    bottom: calc(50% - clamp(100px, 25vw, 150px));
+    left: calc(50% - clamp(100px, 25vw, 150px));
 }
 .lid {
     position: absolute;
@@ -132,7 +132,7 @@ body {
 }
 @keyframes open-box { 
     0% {transform: rotate(0deg);
-    bottom:calc(50% - clamp(75px, 25vw, 120px));}
+    bottom:calc(50% - clamp(100px, 25vw, 150px));}
     5% {transform: rotate(3deg);}
     15% {transform: rotate(-3deg);}
     25% {transform: rotate(3deg);}
@@ -360,7 +360,7 @@ body {
 }
 #message {
     position: absolute;
-    top:-60%;
+    top:-70%;
     width: 200%;
     left: -50%;
     color: black;
@@ -414,10 +414,10 @@ body {
 #cake-move {
     position: absolute;
     bottom: 10%;
-    left: calc(50% - clamp(75px, 25vw, 120px));
+    left: calc(50% - clamp(100px, 25vw, 150px));
     transform: translate(-84vw);
-    height: clamp(150px, 50vw, 240px);
-    width: clamp(150px, 50vw, 240px);
+    height: clamp(200px, 50vw, 300px);
+    width: clamp(200px, 50vw, 300px);
     justify-content: center;
     align-items: end;
 }
@@ -439,3 +439,4 @@ body {
     75% {transform: translateX(0);}
     100% {transform: translateX(0);}
 }
+/**/
