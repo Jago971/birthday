@@ -1,0 +1,441 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    height: 100vh;
+    width:100vw;
+    font-family: playpen sans;
+    background-color: rgb(241, 111, 111);
+}
+.flex {
+    display: flex;
+}
+.tst {
+    border: solid 1px black;
+}
+.page-wrap {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.container {
+    position: absolute;
+    width: clamp(150px, 50vw, 240px);
+    height: clamp(150px, 50vw, 240px);
+}
+
+/*----------------------------------box*/
+.box {
+    flex-direction: column;
+    align-items: center;
+    bottom: calc(50% - clamp(75px, 25vw, 120px));
+    left: calc(50% - clamp(75px, 25vw, 120px));
+}
+.lid {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    top: 10%;
+    justify-content: center;
+    background-color: rgb(57, 53, 112);
+    z-index: 1;
+    border: solid clamp(2px, 1vw, 5px) black;
+}
+.bow {
+    position: absolute;
+    height: 200%;
+    width: 20%;
+    top: -200%;
+    transform-origin: bottom center;
+    background-color: rgb(237, 237, 52);
+    border-radius: 50%;
+    border: solid clamp(2px, 1vw, 5px) black;
+}
+.bow:after {
+    content: '';
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    background-color: rgb(241, 111, 111);
+    border: clamp(2px, 1vw, 5px) solid black;
+    left: calc(25% - clamp(2px, 1vw, 5px));
+    top:  calc(25% - clamp(2px, 1vw, 5px));
+    border-radius: 50%;
+}
+.bow.left {
+    transform: rotate(-45deg);
+}
+.bow.right {
+    transform: rotate(45deg);
+}
+
+.base {
+    position: absolute;
+    bottom: 0;
+    width: 85%;
+    height: 75%;
+    background-color: rgb(57, 53, 112);
+    justify-content: center;
+    border: solid clamp(2px, 1vw, 5px) black;
+}
+.stripe {
+    position: relative;
+    width: 20%;
+    background-color: rgb(237, 237, 52);
+}
+#click-me {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    font-size:  clamp(1.8rem, 9vw, 2.8rem);
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    cursor: pointer;
+    transition: opacity 1s;
+
+    
+
+}
+/*box shake anim-----------------*/
+.shake-box {
+    animation: shake-box 2s infinite;
+}
+.shake-lid {
+    animation: shake-lid 2s infinite;
+}
+@keyframes shake-box { 
+    0% {transform: rotate(0deg);}
+    30% {transform: rotate(0deg);}
+    40% {transform: rotate(-3deg);}
+    60% {transform: rotate(3deg);}
+    70% {transform: rotate(0deg);}
+    100% {transform: rotate(0deg);}
+}
+@keyframes shake-lid { 
+    0% {transform: rotate(0deg);}
+    35% {transform: rotate(0deg);}
+    45% {transform: rotate(-2deg);}
+    65% {transform: rotate(2deg);}
+    75% {transform: rotate(0deg);}
+    100% {transform: rotate(0deg);}
+}
+/*box open anim -----------------*/
+.open-box {
+    animation: open-box 4s ease-in-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes open-box { 
+    0% {transform: rotate(0deg);
+    bottom:calc(50% - clamp(75px, 25vw, 120px));}
+    5% {transform: rotate(3deg);}
+    15% {transform: rotate(-3deg);}
+    25% {transform: rotate(3deg);}
+    35% {transform: rotate(-3deg);}
+    45% {transform: rotate(3deg);}
+    55% {transform: rotate(-3deg);}
+    60% {transform: rotate(0deg);
+    bottom: 10%;}
+    100% {bottom: 10%;}
+}
+.open-lid {
+    animation: open-lid 4s ease-in-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes open-lid { 
+    0% {transform: rotate(0deg);}
+    7.5% {transform: rotate(3deg);}
+    17.5% {transform: rotate(-3deg);}
+    27.5% {transform: rotate(3deg);}
+    37.5% {transform: rotate(-3deg);}
+    47.5% {transform: rotate(3deg);}
+    57.5% {transform: rotate(-3deg);}
+    67.5% {transform: rotate(3deg);}
+    77.5% {transform: rotate(-3deg);}
+    85% {transform: rotate(0deg);}
+    95% {top: 10%}
+    97% {opacity: 1;}
+    100% {top:-100%;
+    opacity: 0;}
+}
+.open-base {
+    animation: open-base 5s linear;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes open-base {
+    0% {bottom: 0}
+    95% {bottom:0;}
+    97% {opacity: 1;}
+    100% {bottom: -10%;
+    opacity: 0;}
+}
+/*text---------------------------------------*/
+.text {
+    position: absolute;
+    bottom: clamp(75px, 37.5vw, 225px);
+    width: 100%;
+    height:10vh;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(1.3rem, 8vw, 4rem);
+    font-weight: 900;
+    scale: 0;
+    opacity: 0;
+}
+.text p {
+    margin: 0;
+}
+#white {
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    transition: all 0.8s ease-in-out;
+    animation: glow 0.6s ease-in-out infinite alternate;
+}
+#red {
+    color: red;
+    transition: all 0.8s ease-in-out;
+}
+#orange {
+    color: orange;
+    transition: all 0.85s ease-in-out;
+}
+#yellow {
+    color: yellow;
+    transition: all 0.9s ease-in-out;
+}
+#green {
+    color: lightgreen;
+    transition: all 0.95s ease-in-out;
+}
+#blue {
+    color: lightskyblue;
+    transition: all 1s ease-in-out;
+}
+#purple {
+    color: violet;
+    transition: all 1.05s ease-in-out;
+}
+/*text anim-----------------*/
+
+@keyframes text-anim-horz {
+    0% {translate: -1.5vh calc(-80vh + clamp(75px, 37.5vw, 225px));}
+    100% {translate: 1.5vh calc(-80vh + clamp(75px, 37.5vw, 225px));}
+}
+@keyframes text-anim-vert {
+    from {translate: 0 0;}
+    to {translate: 0 3vh;}
+}
+@keyframes glow {
+    from {text-shadow: -1px -1px 0px yellow, 1px -1px 0px yellow, -1px 1px 0px yellow, 1px 1px 0px yellow;}
+    to {text-shadow: -1px -1px 30px yellow, 1px -1px 30px yellow, -1px 1px 30px yellow, 1px 1px 30px yellow;}
+}
+
+/*cake-------------------------------------*/
+.cake {
+    position: relative;
+    flex-direction: column-reverse;
+    align-items: center;
+    
+}
+.layer {
+    position: relative;
+    background-color: rgb(235, 235, 181);
+    position: relative;
+    border: solid clamp(1px, clamp(2px, 1vw, 5px), 5px);
+    justify-content: space-evenly;
+}
+.top {
+    height: 40%;
+    width: 90%;
+    border-radius: 15% 15% 0 0;
+    top: 5%
+}
+.bottom {
+    height: 50%;
+    width: 100%;
+    border-radius: 15%;
+}
+.topping, .round-base {
+    position: absolute;
+    width: 98%;
+    background-color: rgb(235, 235, 181);
+    border-radius: 50%;
+}
+.topping, .round-base {
+    height: 35%;
+}
+.top .topping {
+    top: calc(-10.5%);
+    left: 1%;
+    border: solid clamp(2px, 1vw, 5px);
+    background-color: pink;
+}
+.round-base {
+    bottom: -17.5%;
+    width: 102%;
+    left: -1%;
+}
+.bottom .topping {
+    height: 40%;
+    left: 1%;
+    top: calc(-9% - 2px);
+    background-color: pink;
+    border: solid clamp(2px, 1vw, 5px);
+}
+
+.icing {
+    position: absolute;
+    top: -8%;
+    width: 100%;
+    height: 50%;
+    justify-content: space-between;
+    padding: 2%
+}
+.icing > div {
+    position: relative;
+    border: solid clamp(2px, 1vw, 5px) black;
+    height: 140%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: pink;
+}
+.icing > div:nth-of-type(2) {
+    top: 10%;
+    scale: 1.1;
+}
+.icing > div:last-of-type {
+    transform: skewY(-4deg);
+}
+.icing > div:first-of-type {
+    transform: skewY(4deg);
+}
+/*----------------------------------------------------candle*/
+.candle {
+    position: absolute;
+    border: solid clamp(2px, 1vw, 5px) black;
+    height: 30%;
+    width: 10%;
+    z-index: 1;
+    background: repeating-linear-gradient(
+        90deg,
+        rgb(150, 0, 0),
+        rgb(200, 0, 0) 25%,
+        red 50%,
+        red 100%
+    );
+    opacity: 0;
+    top: -10%;
+}
+.candle:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.75),
+        rgba(255, 255, 255, 0.75) 10%,
+        transparent 10%,
+        transparent 20%
+
+    );
+}
+.candle:after {
+    content: '';
+    position: absolute;
+    height: 30%;
+    top: -30%;
+    left: calc(50% - clamp(1.5px, 0.75vw, 3.75px));
+    width:  clamp(3px, 1.5vw, 7.5px);
+    background-color: black;
+}
+#message {
+    position: absolute;
+    top:-60%;
+    width: 200%;
+    left: -50%;
+    color: black;
+    opacity: 1;
+    text-align: center;
+    font-size: clamp(1rem, 6vw, 2.5rem);
+    opacity: 0;
+}
+.flame {
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    border-radius: 50% 50% 40% 40%;
+    background-color: rgb(255, 204, 0);
+    top: -60%;
+    left: 0;
+    scale: 0;
+    transition: scale 1s;
+}
+/*-------------------------------------------candle anim*/
+.candle-drop {
+    animation: candleDrop 1s ease-in;
+    animation-fill-mode: forwards; 
+}
+@keyframes candleDrop {
+    from {transform: translateY(-10vh); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+.ignite {
+    transform-origin: bottom;
+    animation: ignite 1s ease-in-out infinite alternate;
+}
+@keyframes ignite {
+    from {transform: rotate(-10deg);}
+    to {transform: rotate(10deg);}
+}
+/*---------------------------------------------------------------cake anim*/
+.bounce {
+    animation: bounce 1s ease infinite;
+    animation-iteration-count: 3;
+}
+@keyframes bounce {
+    0%   { transform: scale(1,1) translateY(0);}
+    10%  { transform: scale(1.1,.9) translateY(0);}
+    30%  { transform: scale(.9,1.1) translateY(-30%);}
+    50%  { transform: scale(1.05,.95) translateY(5%);}
+    56%  { transform: scale(1,1) translateY(-3%);}
+    64%  { transform: scale(1,1) translateY(0);}
+    100% { transform: scale(1,1) translateY(0);}
+}
+#cake-move {
+    position: absolute;
+    bottom: 10%;
+    left: calc(50% - clamp(75px, 25vw, 120px));
+    transform: translate(-84vw);
+    height: clamp(150px, 50vw, 240px);
+    width: clamp(150px, 50vw, 240px);
+    justify-content: center;
+    align-items: end;
+}
+.move-in {
+    
+    animation: move-in 4s linear;
+    animation-fill-mode: forwards;
+}
+@keyframes move-in {
+    0% {transform: translateX(-84vw);}
+    2.5% {transform: translateX(-84vw);}
+    10% {transform: translateX(-56vw);}
+    25% {transform: translateX(-56vw);}
+    27.5% {transform: translateX(-56vw);}
+    35% {transform: translateX(-28vw);}
+    50% {transform: translateX(-28vw);}
+    52.5% {transform: translateX(-28vw);}
+    60% {transform: translateX(0);}
+    75% {transform: translateX(0);}
+    100% {transform: translateX(0);}
+}
